@@ -12,3 +12,9 @@ através de um microcontrolador.
 
 Aplicação básica de leitura e exibição de imagem com OpenCV para fins de estudo e familiarização com
 a biblioteca.
+
+[24-06-2025] - Testes com filtros e binarização
+
+Testes simples aplicados sobre uma imagem amostral de procedimentos de processamento de imagem como converção para escala de cinza, aplicação de filtro gaussiano, binarização de pixels e inversão de cores.
+
+Realizada a primeira identificação e demarcação dos contornos mas os parâmetros de filtro ainda precisam ser ajustados.

@@ -1,6 +1,4 @@
 import cv2 as cv
-import numpy as np
-import os
 
 # Carregar e redimensionar imagem
 img_dir = r'.\img'
@@ -29,5 +27,5 @@ cv.imshow("Imagem com contorno", img)
 k = cv.waitKey(0)
 
 if chr(k) == 's':
-  print(f'Imagem salva em: {img_dir}\\display_binario.jpg'.replace('.\\', ''))
-  cv.imwrite(f'{img_dir}\\display_binario.jpg', thresh)
+  cv.imwrite(f'{img_dir}\\multimetro_binario.jpg', thresh)
+  cv.imwrite(f'{img_dir}\\multimetro_demarcado.jpg', img)
