@@ -32,12 +32,18 @@ for cnt in binarizar.contours:
 
           if all(a >= 85 and a <= 95 for a in angles):
             cv.drawContours(img, [cnt], 0, (0, 255, 0), 3)
+            x, y, w, h = cv.boundingRect(cnt)
+            roi = img[y:y+h, x:x+w]
 
 cv.imshow("Imagem binarizada", binary_img)
 cv.imshow("Imagem com contorno", img)
+cv.imshow("Display", roi)
 k = cv.waitKey(0)
 
 if chr(k) == 's':
-  path = f'{img_dir}\\multimetro_demarcado.jpg'
-  cv.imwrite(f'{img_dir}\\multimetro_demarcado.jpg', img)
-  print(f'Imagem guardada em: {path}'.replace('.\\', ''))
+  contour_path = f'{img_dir}\\multimetro_demarcado.jpg'
+  display_path = f'{img_dir}\\display.jpg'
+  cv.imwrite(contour_path, img)
+  cv.imwrite(display_path, roi)
+  print(f'Imagem guardada em: {contour_path}'.replace('.\\', ''))
+  print(f'Imagem guardada em: {display_path}'.replace('.\\', ''))
