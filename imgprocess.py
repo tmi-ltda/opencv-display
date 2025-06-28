@@ -10,7 +10,6 @@ def getBinaryImage(img, gaussian_ksize):
   # Binarização da imagem
   binary_img = cv.adaptiveThreshold(blurred_img, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY_INV, 23, 2)
 
-
   return binary_img
 
 def getDeviceContour(img):
@@ -21,7 +20,6 @@ def getDeviceContour(img):
   # Retornar o maior contorno encontrado
   if contours:
     cnt = max(contours, key=cv.contourArea)
-    cv.drawContours(img, [cnt], -1, (0, 255, 0), 2)
     x, y, w, h = cv.boundingRect(cnt)
     return img[y:y+h, x:x+w], w, h
   return None

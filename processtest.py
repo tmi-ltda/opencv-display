@@ -15,10 +15,7 @@ imgs = [
 for i in range(len(imgs)):
   img = cv.resize(imgs[i], (500, 500))
   device, device_w, device_h = imgprocess.getDeviceContour(img)
-  binary_img = imgprocess.getBinaryImage(img, (3, 3))
 
-  cv.imshow('Image', img)
-  cv.imshow('Binary', binary_img)
   if device is not None:
     cv.imshow('Device', device)
     display = imgprocess.getDisplayContour(device, (device_w * device_h) * 0.15)
