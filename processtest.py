@@ -2,12 +2,12 @@ import cv2 as cv
 import imgprocess
 
 imgs = [
-  cv.imread('img/multimetro.jpg'),
+  # cv.imread('img/multimetro.jpg'),
   cv.imread('img/multimetro1.jpg'),
   cv.imread('img/multimetro2.jpg'),
-  cv.imread('img/multimetro3.jpg'),
+  # cv.imread('img/multimetro3.jpg'),
   cv.imread('img/multimetro4.jpg'),
-  cv.imread('img/multimetro5.jpg'),
+  # cv.imread('img/multimetro5.jpg'),
   cv.imread('img/multimetro6.jpg'),
   cv.imread('img/multimetro7.jpg'),
 ]
@@ -18,8 +18,11 @@ for i in range(len(imgs)):
 
   if device is not None:
     cv.imshow('Device', device)
-    display = imgprocess.getDisplayContour(device, (device_w * device_h) * 0.15)
+    display, display_w, display_h = imgprocess.getDisplayContour(device, (device_w * device_h) * 0.15)
     if display is not None:
+      binary_display = imgprocess.getBinaryImage(display, (3, 3))
+      cv.imshow('Binary Display', binary_display)
+      segments = imgprocess.getSegmentContour(display, (display_w * display_h) * 0.02)
       cv.imshow('Display', display)
   cv.waitKey(0)
   cv.destroyAllWindows()
