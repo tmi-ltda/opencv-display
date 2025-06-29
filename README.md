@@ -35,3 +35,8 @@ Além disso, as rotinas de tratamento de imagem foram reorganizadas em funções
 projeto.
 
 Os testes de extração de display com 7 imagens amostrais foi bem sucedido.
+
+[29-06-2025] - Reconhecimento de dígitos no display (Apenas ROIs)
+
+Criação de uma função que limpa possíveis ruídos do display e isola as regiões de interesse dos dígitos para análise dos
+segmentos.
