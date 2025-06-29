@@ -109,7 +109,7 @@ def getDigitRois(img, target_area):
   # Unir os segmentos
   kernel = cv.getStructuringElement(cv.MORPH_RECT, (3, 7))
   binary_img = cv.dilate(binary_img, kernel, iterations=1)
-  cv.imshow('Morphed Image', binary_img)
+  # cv.imshow('Morphed Image', binary_img)
 
   # Encontrar contornos dos digitos
   contours, _ = cv.findContours(binary_img, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
@@ -121,5 +121,5 @@ def getDigitRois(img, target_area):
     aspect_ratio = float(w) / h
     if target_area * 0.7 <= area <= target_area * 5 and aspect_ratio < h / float(w):
       digit_rois.append(img[y:y+h, x:x+w])
-      cv.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
+      # cv.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
   return digit_rois if digit_rois else None
